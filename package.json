@@ -1,0 +1,17 @@
+{
+  "name": "yt-playlist-resolver",
+  "version": "0.1.0",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "yt-playlist-resolver": "./src/cli.mjs"
+  },
+  "scripts": {
+    "resolve": "node src/cli.mjs --in examples/playlist.csv --out out/resolved.csv --m3u out/playlist.m3u --json out/playlist.json",
+    "test": "node src/cli.mjs --help"
+  },
+  "dependencies": {
+    "csv-parse": "^5.5.6",
+    "csv-stringify": "^6.5.1"
+  }
+}

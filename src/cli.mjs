@@ -36,8 +36,15 @@ for (const row of rows) {
   resolved.push(r)
 }
 
+// By default, output only the essential columns + the resolved URL.
+const minimal = resolved.map((r) => ({
+  Izvodjac: r.Izvodjac,
+  Pjesma: r.Pjesma,
+  resolved_watch_url: r.resolved_watch_url || '',
+}))
+
 fs.mkdirSync(path.dirname(outPath), { recursive: true })
-fs.writeFileSync(outPath, stringify(resolved, { header: true }))
+fs.writeFileSync(outPath, stringify(minimal, { header: true }))
 
 if (m3uPath) {
   fs.mkdirSync(path.dirname(m3uPath), { recursive: true })
